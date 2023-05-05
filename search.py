@@ -2,11 +2,10 @@ from collections import deque
 from node import Node
 from node import Child
 from problem import Problem
-from state_helper import PriorityQueue
 
 
 def uniform_cost_search(problem):
-    node = Node(problem.initial_state, 0, 0)
+    node = Node(problem.initial_state, 0, 0, 0)
     q = []
     q.append(node)
     explored = []
@@ -16,7 +15,7 @@ def uniform_cost_search(problem):
         if problem.is_goal_state(node.state): return problem.solution(node,explored)
         explored.append(node)
         for action in problem.get_actions(node.state):
-            child = Child(node, action)
+            child = Child(node, action, 0)
             if explored.count(child.state) == 0 and q.count(child.state) == 0:
                 q.append(child)
             elif q.count(child.state) != 0: 

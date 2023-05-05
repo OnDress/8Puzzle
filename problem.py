@@ -2,6 +2,7 @@ from action import Action
 from node import Child
 from node import Node
 from state_helper import find_blank
+from heuristic import misplaced_tile
 
 class Problem:
     def __init__(self, initial_state):
