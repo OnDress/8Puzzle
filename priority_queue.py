@@ -10,10 +10,35 @@ class Priority_Queue:
     def insert(self, node):
         self.queue.append(node)
 
-    def exists(self,node):
-        return self.queue.count(node.state) != 0
+    def exists(self,state):
+        i = 0
+        while i < len(self.queue):
+            if self.queue[i].state == state: return True
+            i += 1
+        return False
     
-    def delete(self):
+    def at(self,index):
+        return self.queue[index]
+
+    def exists_element(self,state):
+        i = 0
+        while i < len(self.queue):
+            if self.queue[i].state == state: return i
+            i += 1
+        return False
+    
+    def delete_cost(self):
+        min = 999999999999
+        index = 0
+        for i in range(len(self.queue)):
+            if self.queue[i].cost < min:
+                min = self.queue[i].cost
+                index = i
+        min_cost_node = self.queue[i]
+        del self.queue[i]
+        return min_cost_node
+    
+    def delete_f(self):
         min = 999999999999
         index = 0
         for i in range(len(self.queue)):
