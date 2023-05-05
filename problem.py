@@ -1,11 +1,13 @@
 from action import Action
+from node import Child
+from node import Node
 from state_helper import find_blank
 
 class Problem:
-    def __init__(self, initial_state, goal_state):
+    def __init__(self, initial_state):
         self.initial_state = initial_state
-        self.goal_state = goal_state
-
+        self.goal_state = [["1", "2", "3"],["4", "5", "6"], ["7", "8", "0"]]
+                           
     def is_goal_state(self, state):
         return self.goal_state == state
     
@@ -18,4 +20,14 @@ class Problem:
         if col > 0: actions.append(Action.LEFT)
         if col < n: actions.append(Action.RIGHT)
         return actions
-
+    
+    def solution(self,node,set):
+        expanded = str(len(set))
+        depth = str(node.depth)
+        print("\nGoal Reached")
+        print("To solve this problem the search algorithm expanded a total of " + expanded + " nodes.")
+        print("The depth of the goal node was " + depth)
+        for row in node.state:
+            for col in row:
+                print(col, end=" ")
+            print()

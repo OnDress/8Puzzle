@@ -1,12 +1,12 @@
 from state_helper import apply_action
 
 class Node:
-    def __init__(self, state: List[List[int]], depth, cost):
+    def __init__(self, state, depth, cost):
         self.state = state
         self.depth = depth
         self.cost = cost
         self.parent = None
-
+class Child:
     def __init__(self, parent, action):
         self.parent = parent
         self.depth = parent.depth + 1
