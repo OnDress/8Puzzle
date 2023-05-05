@@ -2,6 +2,7 @@ from collections import deque
 from node import Node
 from node import Child
 from problem import Problem
+from heuristic import misplaced_tile
 
 
 def uniform_cost_search(problem):
@@ -21,4 +22,3 @@ def uniform_cost_search(problem):
             elif q.count(child.state) != 0: 
                  i = q.index(child.state)
                  if q[i].cost > child.cost: q[i] = child
-
