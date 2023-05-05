@@ -2,11 +2,16 @@ from problem import Problem
 import search
 
 def main():
-    print("Welcome to ...")
-    puzzle_type = input("Type \"1\" to use a default puzzle... :")
+    print("Welcome to 862173656 8 puzzle solver")
+    puzzle_type = input("Type \"1\" to use a default puzzle, or \"2\" to enter your own puzzle :")
     if puzzle_type == "1":
-        print("yo")# use default puzzle
+        #use default
+        r1 = ["0", "1", "2"]
+        r2 = ["4", "5", "3"]
+        r3 = ["7", "8", "6"]
+        initial_state = [r1,r2,r3]
     elif puzzle_type == "2":
+        # use custom
         print("\nEnter your puzzle, use a zero to represent the blank")
         x,y,z = input("Enter the first row, use spaces between numbers\n").split()
         r1 =[x,y,z]
@@ -15,7 +20,6 @@ def main():
         x,y,z = input("Enter the third row, use spaces between numbers\n").split()
         r3 = [x,y,z]
         initial_state = [r1,r2,r3]
-        # use custom
     else:
         print("Invalid input")
     
