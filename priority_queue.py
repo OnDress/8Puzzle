@@ -34,8 +34,8 @@ class Priority_Queue:
             if self.queue[i].cost < min:
                 min = self.queue[i].cost
                 index = i
-        min_cost_node = self.queue[i]
-        del self.queue[i]
+        min_cost_node = self.queue[index]
+        del self.queue[index]
         return min_cost_node
     
     def delete_f(self):
@@ -45,7 +45,7 @@ class Priority_Queue:
             if self.queue[i].f < min:
                 min = self.queue[i].f
                 index = i
-        min_f_node = self.queue[i]
-        del self.queue[i]
+        min_f_node = self.queue[index]
+        del self.queue[index]
         return min_f_node
     

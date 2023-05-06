@@ -21,11 +21,13 @@ class Problem:
         if col < n: actions.append(Action.RIGHT)
         return actions
     
-    def solution(self,node,set):
+    def solution(self, node, set, max_queue):
         expanded = str(len(set))
         depth = str(node.depth)
+        max = str(max_queue)
         print("\nGoal Reached")
         print("To solve this problem the search algorithm expanded a total of " + expanded + " nodes.")
+        print("The maximum number of nodes in the queue at any one time: " + max)
         print("The depth of the goal node was " + depth)
         for row in node.state:
             for col in row:
