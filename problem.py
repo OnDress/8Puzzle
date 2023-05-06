@@ -29,7 +29,36 @@ class Problem:
         print("To solve this problem the search algorithm expanded a total of " + expanded + " nodes.")
         print("The maximum number of nodes in the queue at any one time: " + max)
         print("The depth of the goal node was " + depth)
-        for row in node.state:
+
+
+    def e_solution_trace(self, node, set, max_queue, initial_state):
+        expanded = str(len(set))
+        depth = str(node.depth)
+        max = str(max_queue)
+        stack = []
+        print("Expanding state: ")
+        for row in initial_state:
             for col in row:
                 print(col, end=" ")
             print()
+        print()
+        while node.parent != None:
+            stack.append(node)
+            node = node.parent
+        while len(stack) !=0:
+            node = stack.pop()
+            h_n = str(node.heuristic)
+            g_n = str(node.cost)
+            if len(stack) != 0:
+                print("The best state to expand with g(n) = " + g_n + " and h(n) = " + h_n + " is: ")
+            for row in node.state:
+                for col in row:
+                    print(col, end=" ")
+                print()
+            if len(stack) != 0:
+                print("Expanding this node...\n")
+        print()
+        print("Goal Reached!")
+        print("To solve this problem the search algorithm expanded a total of " + expanded + " nodes.")
+        print("The maximum number of nodes in the queue at any one time: " + max)
+        print("The depth of the goal node was " + depth)

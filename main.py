@@ -25,14 +25,20 @@ def main():
     
     print("Enter your choice of algorithm")
     print("1 - Uniform Cost Search")
-    print("2 - A\* with the Misplaced Tile Heuristic")
-    algorithm_type = input("3 - A\* with the Euclidean distance heuristic\n")
+    print("2 - A* with the Misplaced Tile Heuristic")
+    algorithm_type = input("3 - A* with the Euclidean distance heuristic\n")
 
     if algorithm_type == "1":
         search.uniform_cost_search(Problem(initial_state))
     elif algorithm_type == "2":
         search.misplaced_tile_search(Problem(initial_state))
     elif algorithm_type == "3":
-        search.euclidean_distance_search(Problem(initial_state))
+        print("Would you like the algorithm with a trace of the solution or without:")
+        print("1 - Without Trace")
+        trace_type = input("2 - With Trace\n")
+        if trace_type == "1":
+            search.euclidean_distance_search(Problem(initial_state))
+        elif trace_type == "2":
+            search.euclidean_distance_search_trace(Problem(initial_state))
     
 if __name__ == "__main__": main()

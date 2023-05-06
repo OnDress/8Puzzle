@@ -77,4 +77,28 @@ def euclidean_distance_search(problem):
                 q.insert(child)
         explored.append(node)
 
+def euclidean_distance_search_trace(problem):
+    node = Node(problem.initial_state, 0, 0)
+    q = Priority_Queue()
+    q.insert(node)
+    max_queue = 1
+    explored = []
+    while not q.is_empty():
+        if len(q.queue) > max_queue: max_queue = len(q.queue)
+        node = q.delete_f()
+        for action in problem.get_actions(node.state):
+            child = Child(node, action)
+            child.heuristic = euclidean_distance(child.state)
+            child.f = child.cost + child.heuristic
+            if problem.is_goal_state(node.state): return problem.e_solution_trace(node, explored, max_queue, problem.initial_state)
+            if q.exists(child.state):
+                i = q.exists_element(child.state)
+                if q.at(i).cost < child.cost: break
+            elif e_state_exists(explored, child.state):
+                i = e_exists_element(child.state)
+                if explored[i].cost < child.cost: break
+            else:
+                q.insert(child)
+        explored.append(node)
+
  
