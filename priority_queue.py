@@ -28,7 +28,7 @@ class Priority_Queue:
         return False
     
     def delete_cost(self):
-        min = 999999999999
+        min = float("inf")
         index = 0
         for i in range(len(self.queue)):
             if self.queue[i].cost < min:
@@ -39,7 +39,7 @@ class Priority_Queue:
         return min_cost_node
     
     def delete_f(self):
-        min = 999999999999
+        min = float("inf")
         index = 0
         for i in range(len(self.queue)):
             if self.queue[i].f < min:

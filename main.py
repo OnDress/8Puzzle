@@ -29,16 +29,16 @@ def main():
     algorithm_type = input("3 - A* with the Euclidean distance heuristic\n")
 
     if algorithm_type == "1":
-        search.uniform_cost_search(Problem(initial_state))
+        search.uniform_cost_search(Problem(initial_state,False))
     elif algorithm_type == "2":
-        search.misplaced_tile_search(Problem(initial_state))
+        search.misplaced_tile_search(Problem(initial_state, False))
     elif algorithm_type == "3":
         print("Would you like the algorithm with a trace of the solution or without:")
         print("1 - Without Trace")
         trace_type = input("2 - With Trace\n")
         if trace_type == "1":
-            search.euclidean_distance_search(Problem(initial_state))
+            search.euclidean_distance_search(Problem(initial_state,False))
         elif trace_type == "2":
-            search.euclidean_distance_search_trace(Problem(initial_state))
+            search.euclidean_distance_search(Problem(initial_state, True))
     
 if __name__ == "__main__": main()

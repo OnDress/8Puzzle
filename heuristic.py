@@ -12,7 +12,7 @@ def euclidean_distance(state):
     for i in range(len(state[0])):
         for j in range(len(state[0])):
             total_distance += math.dist(euclidean_helper(state[i][j]),[i,j])
-    return int(total_distance)
+    return total_distance
 
 def euclidean_helper(num):
     if num == "1": return [0,0]

@@ -4,9 +4,10 @@ from node import Node
 from state_helper import find_blank
 
 class Problem:
-    def __init__(self, initial_state):
+    def __init__(self, initial_state,enable_trace):
         self.initial_state = initial_state
         self.goal_state = [["1", "2", "3"],["4", "5", "6"], ["7", "8", "0"]]
+        self.enable_trace = enable_trace
                            
     def is_goal_state(self, state):
         return self.goal_state == state
@@ -25,19 +26,16 @@ class Problem:
         expanded = str(len(set))
         depth = str(node.depth)
         max = str(max_queue)
+        if self.enable_trace: Problem.print_trace(self, node)
         print("\nGoal Reached")
         print("To solve this problem the search algorithm expanded a total of " + expanded + " nodes.")
         print("The maximum number of nodes in the queue at any one time: " + max)
         print("The depth of the goal node was " + depth)
 
-
-    def e_solution_trace(self, node, set, max_queue, initial_state):
-        expanded = str(len(set))
-        depth = str(node.depth)
-        max = str(max_queue)
+    def print_trace(self, node):
         stack = []
         print("Expanding state: ")
-        for row in initial_state:
+        for row in self.initial_state:
             for col in row:
                 print(col, end=" ")
             print()
@@ -58,7 +56,3 @@ class Problem:
             if len(stack) != 0:
                 print("Expanding this node...\n")
         print()
-        print("Goal Reached!")
-        print("To solve this problem the search algorithm expanded a total of " + expanded + " nodes.")
-        print("The maximum number of nodes in the queue at any one time: " + max)
-        print("The depth of the goal node was " + depth)
