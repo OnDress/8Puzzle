@@ -13,12 +13,10 @@ def main():
     elif puzzle_type == "2":
         # use custom
         print("\nEnter your puzzle, use a zero to represent the blank")
-        x,y,z = input("Enter the first row, use spaces between numbers\n").split()
-        r1 =[x,y,z]
-        x,y,z = input("Enter the second row, use spaces between numbers\n").split()
-        r2 = [x,y,z]
-        x,y,z = input("Enter the third row, use spaces between numbers\n").split()
-        r3 = [x,y,z]
+        r1 = input("Enter the first row, use spaces between numbers\n").split()
+        r2 = input("Enter the second row, use spaces between numbers\n").split()
+        r3 = input("Enter the third row, use spaces between numbers\n").split()
+        
         initial_state = [r1,r2,r3]
     else:
         print("Invalid input")

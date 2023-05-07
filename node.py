@@ -1,10 +1,10 @@
 from state_helper import apply_action
 
 class Node:
-    def __init__(self, state, depth, cost):
+    def __init__(self, state):
         self.state = state
-        self.depth = depth
-        self.cost = cost
+        self.depth = 0
+        self.cost = 0
         self.parent = None
         self.heuristic = 0
         self.f = 0

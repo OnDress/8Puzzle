@@ -8,7 +8,7 @@ from problem import Problem
 import search_helper
 
 def uniform_cost_search(problem):
-    node = Node(problem.initial_state, 0, 0)
+    node = Node(problem.initial_state)
     q = Priority_Queue()
     q.insert(node)
     max_queue = 1
@@ -29,7 +29,7 @@ def uniform_cost_search(problem):
                     q.queue[i] = child
 
 def misplaced_tile_search(problem):
-    node = Node(problem.initial_state, 0, 0)
+    node = Node(problem.initial_state)
     q = Priority_Queue()
     q.insert(node)
     max_queue = 1
@@ -53,7 +53,7 @@ def misplaced_tile_search(problem):
         explored.append(node)
 
 def euclidean_distance_search(problem):
-    node = Node(problem.initial_state, 0, 0)
+    node = Node(problem.initial_state)
     q = Priority_Queue()
     q.insert(node)
     max_queue = 1
